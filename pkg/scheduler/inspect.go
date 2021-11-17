@@ -37,9 +37,11 @@ func buildNode(info *cache.NodeInfo) *Node {
 
 	for i, devInfo := range devInfos {
 		dev := &Device{
-			ID:       i,
-			TotalGPU: devInfo.GetTotalGPUMemory(),
-			UsedGPU:  devInfo.GetUsedGPUMemory(),
+			ID:         i,
+			TotalGPU:   devInfo.GetTotalGPUMemory(),
+			UsedGPU:    devInfo.GetUsedGPUMemory(),
+			CurMemUtil: devInfo.GetCurGPUUtil(),
+			CurGPUUtil: devInfo.GetCurMemUtil(),
 		}
 
 		podInfos := devInfo.GetPods()

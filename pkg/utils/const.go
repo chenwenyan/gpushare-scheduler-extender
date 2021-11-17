@@ -10,4 +10,6 @@ const (
 	EnvResourceByDev      = "ALIYUN_COM_GPU_MEM_DEV"
 	EnvAssignedFlag       = "ALIYUN_COM_GPU_MEM_ASSIGNED"
 	EnvResourceAssumeTime = "ALIYUN_COM_GPU_MEM_ASSUME_TIME"
+
+	InterferenceThreshold = 2.0
 )

@@ -14,6 +14,8 @@ type DeviceInfo struct {
 	podMap map[types.UID]*v1.Pod
 	// usedGPUMem  uint
 	totalGPUMem uint
+	curGPUUtil  uint
+	curMemUtil  uint
 	rwmu        *sync.RWMutex
 }
 
@@ -51,6 +53,24 @@ func (d *DeviceInfo) GetUsedGPUMemory() (gpuMem uint) {
 		gpuMem += utils.GetGPUMemoryFromPodAnnotation(pod)
 	}
 	return gpuMem
+}
+
+//TODO: get current GPU utilization of this device
+func (d *DeviceInfo) GetCurGPUUtil() (gpuUtil uint) {
+	log.Printf("debug: GetCurGPUUtil() podMap %v, and its address is %p", d.podMap, d)
+	d.rwmu.RLock()
+	defer d.rwmu.RUnlock()
+	gpuUtil = d.curGPUUtil
+	return gpuUtil
+}
+
+//TODO: get current GPU memory utilization of this device
+func (d *DeviceInfo) GetCurMemUtil() (memUtil uint) {
+	log.Printf("debug: GetCurmemUtil() podMap %v, and its address is %p", d.podMap, d)
+	d.rwmu.RLock()
+	defer d.rwmu.RUnlock()
+	memUtil = d.curMemUtil
+	return memUtil
 }
 
 func (d *DeviceInfo) addPod(pod *v1.Pod) {

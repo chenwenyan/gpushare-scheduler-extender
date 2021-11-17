@@ -268,8 +268,13 @@ func (n *NodeInfo) allocateGPUID(pod *v1.Pod) (candidateDevID int, found bool) {
 						if candidateDevID == -1 || candidateGPUMemory > availableGPU {
 							candidateDevID = devID
 							candidateGPUMemory = availableGPU
+							// TODO: 指定具体可匹配的GPU ID
+							// 判断当前GPU上运行的负载与新的负载的interference大小
+							//process = getCurProcess(devID)
+							//interference = getInterferenceScore(base_pattern, nee_job)
+							//if interfernce <= utils.InterferenceThreshold:
+							//	found = true
 						}
-
 						found = true
 					}
 				}

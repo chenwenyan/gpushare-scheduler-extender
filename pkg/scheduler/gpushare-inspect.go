@@ -24,10 +24,12 @@ type Node struct {
 }
 
 type Device struct {
-	ID       int    `json:"id"`
-	TotalGPU uint   `json:"totalGPU"`
-	UsedGPU  uint   `json:"usedGPU"`
-	Pods     []*Pod `json:"pods"`
+	ID         int    `json:"id"`
+	TotalGPU   uint   `json:"totalGPU"`
+	UsedGPU    uint   `json:"usedGPU"`
+	CurGPUUtil uint   `json:"curGPUUtil"`
+	CurMemUtil uint   `json:"CurMemUtil"`
+	Pods       []*Pod `json:"pods"`
 }
 
 type Pod struct {
