@@ -9,12 +9,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/AliyunContainerService/gpushare-scheduler-extender/pkg/gpushare"
-	"github.com/AliyunContainerService/gpushare-scheduler-extender/pkg/routes"
-	"github.com/AliyunContainerService/gpushare-scheduler-extender/pkg/scheduler"
-	"github.com/AliyunContainerService/gpushare-scheduler-extender/pkg/utils/signals"
 	"github.com/comail/colog"
 	"github.com/julienschmidt/httprouter"
+	"gpushare-scheduler-extender/pkg/gpushare"
+	"gpushare-scheduler-extender/pkg/routes"
+	"gpushare-scheduler-extender/pkg/scheduler"
+	"gpushare-scheduler-extender/pkg/utils/signals"
 
 	kubeinformers "k8s.io/client-go/informers"
 	"k8s.io/client-go/kubernetes"
